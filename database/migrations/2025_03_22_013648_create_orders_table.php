@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('userss')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->float('total_price',8,2);
             $table->enum('table',['Chờ xử lý','Đang xử lý','Đã giao hàng','Đã nhận hàng','Đã hủy'])->default('Chờ xử lý');
             $table->timestamps();
